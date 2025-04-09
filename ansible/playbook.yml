@@ -1,0 +1,6 @@
+- name: install weblogic on ec2s
+  hosts: weblogic-servers
+  
+  tasks: 
+  - name: ls 
+    shell: echo "Hello Ansible!"
