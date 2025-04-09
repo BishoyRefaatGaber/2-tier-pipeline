@@ -26,7 +26,7 @@ environment {
             steps{
                 sshagent([SSH_CREDENTIALS_ID]) {
                     dir('ansible') {
-                        sh 'ansible-playbook -i inventory playbook.yml'
+                        sh 'ansible-playbook -i inventory playbook.yml -vvvv'
                     }
                 }
             }
