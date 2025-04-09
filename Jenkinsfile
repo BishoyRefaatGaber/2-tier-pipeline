@@ -22,7 +22,7 @@ environment {
         }
         stage ("install ansible"){
             steps{
-                sh "yum -y install ansible"
+                sh "apt -y install ansible"
             }
         }     
         stage  ("install weblogic"){
