@@ -19,12 +19,7 @@ environment {
                     sh "terraform output  | awk -F'\"' '{print \$2}' >> ../ansible/inventory "
                 }
             }
-        }
-        stage ("install ansible"){
-            steps{
-                sh "apt -y install ansible"
-            }
-        }     
+        }   
         stage  ("install weblogic"){
             steps{
                 sshagent(['ec2-ssh-key']) {
