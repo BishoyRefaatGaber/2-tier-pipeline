@@ -24,7 +24,7 @@ environment {
 
         stage  ("install weblogic"){
             steps{
-                sshagent(['ec2-ssh-key']) {
+                sshagent([${SSH_CREDENTIALS_ID}]) {
                     dir('ansible') {
                         sh 'ansible-playbook -i inventory playbook.yml'
                     }
