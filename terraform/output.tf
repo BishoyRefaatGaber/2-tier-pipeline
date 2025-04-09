@@ -1,4 +1,4 @@
-output "ec2-public-ip-us-east-1a_" {
+output "ec2-public-ip-us-east-1a" {
   description = "get the public ip"
   value       = module.ec2-public-us-east-1a.ec2-public-ip
 }
