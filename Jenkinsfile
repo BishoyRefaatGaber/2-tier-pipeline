@@ -15,7 +15,7 @@ environment {
                 dir ("terraform"){
                     sh "terraform  init "
                     sh "terraform apply --auto-approve"
-                    sh "terraform output  | awk -F'\"' '{print \$2}' >> ansible/inventory "
+                    sh "terraform output  | awk -F'\"' '{print \$2}' >> ../ansible/inventory "
                 }
             }
         }
