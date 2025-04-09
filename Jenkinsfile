@@ -20,11 +20,7 @@ environment {
                 }
             }
         }
-        stage ("install ansible"){
-            steps{
-                sh "sudo apt-get -y install ansible"
-            }
-        }     
+
         stage  ("install weblogic"){
             steps{
                 sshagent(['ec2-ssh-key']) {
