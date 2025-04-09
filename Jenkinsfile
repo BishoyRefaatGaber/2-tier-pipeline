@@ -4,12 +4,19 @@ pipeline{
         terraform "Terraform"
         ansible "Ansible"
     }
-
+// environment {
+//         AWS_SHARED_CREDENTIALS_FILE = ''
+        
+//     }
     stages {
         stage  ("apply the terraform"){
             steps{
-                sh "cd ./terraform; terraform  init "
-                sh "cd ./terraform; terraform apply --auto-approve"
+            sh "pwd"
+                dir ("terraform"){
+            sh "pwd"
+                    sh "terraform  init "
+                    sh "terraform apply --auto-approve"
+                }
             }
         }
     }

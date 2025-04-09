@@ -15,16 +15,16 @@ resource "aws_instance" "ec2" {
   }
 
 
-  connection {
-    type         = "ssh"
-    user         = "ec2-user"
-    host         = var.use_bastion ? self.private_ip : self.public_ip
-    private_key  = file("../ec2-terraform.pem")
-    bastion_host = var.bastion-host
-    bastion_user = var.bastion-user
-  }
+  # connection {
+  #   type         = "ssh"
+  #   user         = "ec2-user"
+  #   host         = var.use_bastion ? self.private_ip : self.public_ip
+  #   private_key  = file("../ec2-terraform.pem")
+  #   bastion_host = var.bastion-host
+  #   bastion_user = var.bastion-user
+  # }
 
-  provisioner "remote-exec" {
-    inline = var.user-data
-  }
+  # provisioner "remote-exec" {
+  #   inline = var.user-data
+  # }
 }

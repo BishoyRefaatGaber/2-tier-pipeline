@@ -6,7 +6,7 @@ variable "sg-id" {}
 
 variable "pub-ip" {}
 
-variable "user-data" {}
+# variable "user-data" {}
 
 variable "bastion-host" {
 
