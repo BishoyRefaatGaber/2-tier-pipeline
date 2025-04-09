@@ -8,7 +8,7 @@ environment {
         AWS_ACCESS_KEY_ID = credentials("AWS_ACCESS_KEY_ID") 
         AWS_SECRET_ACCESS_KEY = credentials("AWS_SECRET_ACCESS_KEY") 
         AWS_SESSION_TOKEN = credentials("AWS_SESSION_TOKEN") 
-        SSH_CREDENTIALS_ID = credentials("ec2-ssh-key")
+        SSH_CREDENTIALS_ID = credentials("ansible-ssh")
     }
     stages {
         stage  ("apply the terraform"){
