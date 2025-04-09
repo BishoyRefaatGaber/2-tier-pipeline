@@ -8,8 +8,8 @@ pipeline{
     stages {
         stage  ("apply the terraform"){
             steps{
-                sh terraform init
-                sh terraform apply --auto-approve
+                sh "terraform init"
+                sh "terraform apply --auto-approve"
             }
         }
     }
