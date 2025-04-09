@@ -20,7 +20,7 @@ environment {
                 }
             }
         }
-        stage (install ansible){
+        stage ("install ansible"){
             steps{
                 sh "yum -y install ansible"
             }
