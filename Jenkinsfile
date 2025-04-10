@@ -14,14 +14,15 @@ environment {
         stage  ("apply the terraform"){
             steps{
                 dir ("terraform"){
-                    sh "terraform  init "
-                    sh "terraform apply --auto-approve"
-                    sh "echo >> ../ansible/inventory"
-                    sh "terraform output  | awk -F'\"' '{print \$2}' >> ../ansible/inventory "
-                    sh "echo >> ../ansible/inventory"
-                    sh "echo [weblogic-servers:vars] >> ../ansible/inventory"
-                    sh "echo >> ../ansible/inventory"
-                    sh "echo \"ansible_user=ec2-user\" >>../ansible/inventory"
+                    sh "terraform destroy --auto-approve"
+                    // sh "terraform  init "
+                    // sh "terraform apply --auto-approve"
+                    // sh "echo >> ../ansible/inventory"
+                    // sh "terraform output  | awk -F'\"' '{print \$2}' >> ../ansible/inventory "
+                    // sh "echo >> ../ansible/inventory"
+                    // sh "echo [weblogic-servers:vars] >> ../ansible/inventory"
+                    // sh "echo >> ../ansible/inventory"
+                    // sh "echo \"ansible_user=ec2-user\" >>../ansible/inventory"
                 }
             }
         }
