@@ -29,9 +29,10 @@ environment {
         stage  ("install weblogic"){
             steps{
                 sshagent(["ansible-ssh"]) {
+                    withEnv(["ANSIBLE_HOST_KEY_CHECKING=False"]) {
                     dir('ansible') {
                         sh 'ansible-playbook -i inventory playbook.yml -vvvv'
-                    }
+                    }}
                 }
             }
         }
