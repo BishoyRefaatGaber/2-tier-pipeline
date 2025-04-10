@@ -18,6 +18,10 @@ environment {
                     sh "terraform apply --auto-approve"
                     sh "echo >> ../ansible/inventory"
                     sh "terraform output  | awk -F'\"' '{print \$2}' >> ../ansible/inventory "
+                    sh "echo >> ../ansible/inventory"
+                    sh "echo [web-server-tomcat:vars] >> ../ansible/inventory"
+                    sh "echo >> ../ansible/inventory"
+                    sh "echo \"ansible_user={{ ansible_user }}\""
                 }
             }
         }
