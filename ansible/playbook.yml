@@ -3,4 +3,4 @@
   
   tasks: 
   - name: ls 
-    shell: echo "Hello Ansible!"
+    shell: echo "Hello Ansible! >> test.txt"

@@ -19,9 +19,9 @@ environment {
                     sh "echo >> ../ansible/inventory"
                     sh "terraform output  | awk -F'\"' '{print \$2}' >> ../ansible/inventory "
                     sh "echo >> ../ansible/inventory"
-                    sh "echo [weblogicservers:vars] >> ../ansible/inventory"
+                    sh "echo [weblogic-servers:vars] >> ../ansible/inventory"
                     sh "echo >> ../ansible/inventory"
-                    sh "echo \"ansible_user=ec2-user\" >> ../ansible/inventory"
+                    sh "echo \"ansible_user=ec2-user\" >>../ansible/inventory"
                 }
             }
         }
@@ -29,10 +29,10 @@ environment {
         stage  ("install weblogic"){
             steps{
                 sshagent(["ansible-ssh"]) {
-                    withEnv(["ANSIBLE_HOST_KEY_CHECKING=False"]) {
+                    
                     dir('ansible') {
-                        sh 'ansible-playbook -i inventory playbook.yml -vvvv'
-                    }}
+                        sh 'ansible-playbook -i inventory playbook.yml'
+                    }
                 }
             }
         }
