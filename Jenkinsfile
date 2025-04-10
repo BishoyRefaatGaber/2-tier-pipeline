@@ -21,7 +21,7 @@ environment {
                     sh "echo >> ../ansible/inventory"
                     sh "echo [web-server-tomcat:vars] >> ../ansible/inventory"
                     sh "echo >> ../ansible/inventory"
-                    sh "echo \"ansible_user={{ ansible_user }}\""
+                    sh "echo \"ansible_user=ec2-user\""
                 }
             }
         }
