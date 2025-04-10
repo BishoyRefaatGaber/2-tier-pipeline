@@ -4,3 +4,4 @@
   tasks: 
   - name: ls 
     shell: echo "Hello Ansible! >> test.txt && cat  test.txt"
+    shell: mkdir /home/ec2-user/aliiiiiii
