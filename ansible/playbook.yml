@@ -1,7 +1,23 @@
 - name: install weblogic on ec2s
-  hosts: weblogic-servers
+  hosts: nginx-proxy
   
   tasks: 
-  - name: ls 
-    shell: echo "Hello Ansible! >> test.txt && cat  test.txt"
-    shell: mkdir /home/ec2-user/aliiiiiii
+  - name: install nginx
+    yum:
+      name: nginx
+      state: present
+  - name: configure nginx
+    blockinfile:
+      path: /etc/nginx/conf.d/proxy.conf
+      block: server { listen 80; location / { proxy_pass http://${module.nlb-private.nlb-dns}; }}
+  - name: start and enable nginx
+    yum:
+      name: nginx
+      state: started
+      enabled: true
+
+      #   "sudo yum install -y nginx",
+  #   "sudo systemctl start nginx",
+  #   "sudo systemctl enable nginx",
+  #   "echo 'server { listen 80; location / { proxy_pass http://${module.nlb-private.nlb-dns}; }}' | sudo tee /etc/nginx/conf.d/proxy.conf",
+  #   "sudo systemctl restart nginx"
