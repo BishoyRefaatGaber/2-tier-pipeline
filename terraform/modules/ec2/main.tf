@@ -25,6 +25,6 @@ resource "aws_instance" "ec2" {
   }
 
   provisioner "remote-exec" {
-    inline = var.use_bastion ? var.user-data : []
+    inline = var.user-data
   }
 }
