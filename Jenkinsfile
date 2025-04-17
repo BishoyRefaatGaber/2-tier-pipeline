@@ -19,11 +19,16 @@ environment {
                     sh "terraform apply --auto-approve"
                     sh "echo >> ../ansible/inventory"
                     sh "terraform output"
-                    // sh "terraform output  | awk -F'\"' '{print \$2}' >> ../ansible/inventory "
-                    // sh "echo >> ../ansible/inventory"
-                    // sh "echo [weblogic-servers:vars] >> ../ansible/inventory"
-                    // sh "echo >> ../ansible/inventory"
-                    // sh "echo \"ansible_user=ec2-user\" >>../ansible/inventory"
+                    sh "terraform output  | awk -F'\"' '{print \$2}'  | sed -n \"1,2p\">> ../ansible/inventory "
+                    sh "echo"
+                    sh "echo"
+                    sh "echo [nginx-proxy:vars]"
+                    sh "echo"
+                    sh "terraform output  | awk -F'\"' '{print \$2}'  | sed -n \"3p\">> ../ansible/inventory "
+                    sh "echo >> ../ansible/inventory"
+                    sh "echo [weblogic-servers:vars] >> ../ansible/inventory"
+                    sh "echo >> ../ansible/inventory"
+                    sh "echo \"ansible_user=ec2-user\" >>../ansible/inventory"
                 }
             }
         }
