@@ -26,7 +26,7 @@ module "ec2-public-us-east-1a" {
   #   "echo 'server { listen 80; location / { proxy_pass http://${module.nlb-private.nlb-dns}; }}' | sudo tee /etc/nginx/conf.d/proxy.conf",
   #   "sudo systemctl restart nginx"
   # ]
-  user-data = []
+  user-data = [""]
   use_bastion  = false
   bastion-host = ""
   bastion-user = ""
@@ -47,7 +47,7 @@ module "ec2-public-us-east-1b" {
   #   "echo 'server { listen 80; location / { proxy_pass http://${module.nlb-private.nlb-dns}; }}' | sudo tee /etc/nginx/conf.d/proxy.conf",
   #   "sudo systemctl restart nginx"
   # ]  
-  user-data = []
+  user-data = [""]
   use_bastion  = false
   bastion-host = ""
   bastion-user = ""
