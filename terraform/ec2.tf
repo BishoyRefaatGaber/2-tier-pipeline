@@ -72,11 +72,11 @@ module "ec2-private-us-east-1a" {
   sg-id     = [module.sgroup.sg-id]
   ec2-img   = data.aws_ami.nginx-img.id
   subnet-id = module.subnet-private-us-east-1a.subnet-id
+  use_bastion  = true
   user-data = [
     "echo 'Hello from Web Server 1' | sudo tee /usr/share/nginx/html/index.html",
     "sudo systemctl restart nginx"
   ]
-  use_bastion  = true
   bastion-host = module.ec2-public-us-east-1a.ec2-public-ip
   bastion-user = "ec2-user"
   depends_on   = [module.ec2-public-us-east-1a]
@@ -89,6 +89,7 @@ module "ec2-private-us-east-1b" {
   ec2-tag = "ec2-private-us-east-1b"
   sg-id   = [module.sgroup.sg-id]
   ec2-img = data.aws_ami.nginx-img.id
+  use_bastion  = true
 
   subnet-id = module.subnet-private-us-east-1b.subnet-id
   user-data = [
@@ -98,5 +99,4 @@ module "ec2-private-us-east-1b" {
   bastion-host = module.ec2-public-us-east-1b.ec2-public-ip
   bastion-user = "ec2-user"
   depends_on   = [module.ec2-public-us-east-1b]
-  use_bastion  = true
 }
