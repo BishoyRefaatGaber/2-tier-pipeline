@@ -1,7 +1,1 @@
 [nginx_proxy]
-44.198.58.176
-54.234.160.211
-[nginx_proxy:vars]
-
-
-ansible_user=ec2-user
