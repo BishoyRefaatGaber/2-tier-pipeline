@@ -38,7 +38,7 @@ environment {
                     dir('ansible') {
 
 
-                        ansiblePlaybook credentialsId: {{ SSH_CREDENTIALS_ID }}, inventory: 'inventory', playbook: 'playbook.yml'
+                        ansiblePlaybook credentialsId: "{{ SSH_CREDENTIALS_ID }}", inventory: 'inventory', playbook: 'playbook.yml'
 
 
                         // sh 'ansible-playbook -i inventory playbook.yml -vvvv'
