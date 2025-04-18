@@ -6,10 +6,10 @@
     yum:
       name: nginx
       state: present
-  - name: configure nginx
-    blockinfile:
-      path: /etc/nginx/conf.d/proxy.conf
-      block: server { listen 80; location / { proxy_pass http://{{ nlb-dns }}; }}
+  # - name: configure nginx
+  #   blockinfile:
+  #     path: /etc/nginx/conf.d/proxy.conf
+  #     block: server { listen 80; location / { proxy_pass http://{{ nlb-dns }}; }}
   - name: start and enable nginx
     yum:
       name: nginx
