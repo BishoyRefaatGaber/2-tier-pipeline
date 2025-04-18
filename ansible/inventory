@@ -1,1 +1,4 @@
+[nginx_proxy:vars]
+ansible_user  ec2-_user
+
 [nginx_proxy]
