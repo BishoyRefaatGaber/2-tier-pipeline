@@ -38,7 +38,7 @@ environment {
                 sshagent(["ansible-ssh"]) {
                     
                     dir('ansible') {
-                        sh 'ansible-playbook -i inventory playbook.yml'
+                        sh 'ansible-playbook -i inventory playbook.yml -vvvv'
                     }
                 }
             }
