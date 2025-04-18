@@ -1,9 +1,14 @@
 - name: install nginx on ec2s
   hosts: nginx_proxy
   become: yes
+  become_user: ec2-user
   tasks: 
+  tasks: # List of tasks to execute
+  - name: Update package list # Task name
+    dnf: # Module to use for the task
+      update_cache: yes # Update the package cache
   - name: install nginx
-    yum:
+    dnf:
       name: nginx
       state: present
   # - name: configure nginx
@@ -11,7 +16,7 @@
   #     path: /etc/nginx/conf.d/proxy.conf
   #     block: server { listen 80; location / { proxy_pass http://{{ nlb-dns }}; }}
   - name: start and enable nginx
-    yum:
+    systemd:
       name: nginx
       state: started
       enabled: true
