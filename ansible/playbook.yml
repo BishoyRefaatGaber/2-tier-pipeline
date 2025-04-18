@@ -1,25 +1,26 @@
 - name: install nginx on ec2s
   hosts: nginx_proxy
   become: yes
-  become_user: ec2-user
-  tasks: 
+  remote_user: ec2-user
   tasks: # List of tasks to execute
-  - name: Update package list # Task name
-    dnf: # Module to use for the task
-      update_cache: yes # Update the package cache
-  - name: install nginx
-    dnf:
-      name: nginx
-      state: present
+  - name: 
+    sh: "touch aliii"
+  # - name: Update package list # Task name
+  #   dnf: # Module to use for the task
+  #     update_cache: yes # Update the package cache
+  # - name: install nginx
+  #   dnf:
+  #     name: nginx
+  #     state: present
   # - name: configure nginx
   #   blockinfile:
   #     path: /etc/nginx/conf.d/proxy.conf
   #     block: server { listen 80; location / { proxy_pass http://{{ nlb-dns }}; }}
-  - name: start and enable nginx
-    systemd:
-      name: nginx
-      state: started
-      enabled: true
+  # - name: start and enable nginx
+  #   systemd:
+  #     name: nginx
+  #     state: started
+  #     enabled: true
 
       #   "sudo yum install -y nginx",
   #   "sudo systemctl start nginx",
