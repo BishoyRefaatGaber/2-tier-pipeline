@@ -1,5 +1,5 @@
 - name: install nginx on ec2s
-  hosts: nginx-proxy
+  hosts: nginx_proxy
   
   tasks: 
   - name: install nginx
