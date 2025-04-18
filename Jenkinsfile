@@ -26,7 +26,7 @@ environment {
                     sh "echo"
                     sh "terraform output  | awk -F'\"' '{print \"nlb-dns=\"\$2}'  | sed -n \"3p\">> ../ansible/inventory "
                     sh "echo >> ../ansible/inventory"
-                    sh "echo [weblogic-servers:vars] >> ../ansible/inventory"
+                    sh "echo [nginx-proxy:vars] >> ../ansible/inventory"
                     sh "echo >> ../ansible/inventory"
                     sh "echo \"ansible_user=ec2-user\" >>../ansible/inventory"
                 }
