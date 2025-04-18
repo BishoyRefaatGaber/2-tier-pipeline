@@ -1,7 +1,6 @@
 - name: install nginx on ec2s
   hosts: nginx_proxy
   become: yes
-  remote_user: ec2-user
   tasks: # List of tasks to execute
     - name: "no comment"
       shell: "touch aliii"
