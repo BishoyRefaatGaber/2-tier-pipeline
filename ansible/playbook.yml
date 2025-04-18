@@ -1,4 +1,4 @@
-- name: install weblogic on ec2s
+- name: install nginx on ec2s
   hosts: nginx-proxy
   
   tasks: 

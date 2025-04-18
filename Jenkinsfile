@@ -24,8 +24,7 @@ environment {
                     sh "echo"
                     sh "echo [nginx-proxy:vars] >>  ../ansible/inventory"
                     sh "echo"
-                    sh "echo nlb-dns= >> ../ansible/inventory"
-                    sh "terraform output  | awk -F'\"' '{print \$2}'  | sed -n \"3p\">> ../ansible/inventory "
+                    sh "echo nlb-dns= >> ../ansible/inventory ; terraform output  | awk -F'\"' '{print \$2}'  | sed -n \"3p\">> ../ansible/inventory "
                     sh "echo >> ../ansible/inventory"
                     sh "echo [weblogic-servers:vars] >> ../ansible/inventory"
                     sh "echo >> ../ansible/inventory"
@@ -34,7 +33,7 @@ environment {
             }
         }
 
-        stage  ("install weblogic"){
+        stage  ("configure nginx proxy"){
             steps{
                 sshagent(["ansible-ssh"]) {
                     
