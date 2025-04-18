@@ -4,7 +4,7 @@
   remote_user: ec2-user
   tasks: # List of tasks to execute
   - name: "no comment"
-    sh: "touch aliii"
+    shell: "touch aliii"
   # - name: Update package list # Task name
   #   dnf: # Module to use for the task
   #     update_cache: yes # Update the package cache
