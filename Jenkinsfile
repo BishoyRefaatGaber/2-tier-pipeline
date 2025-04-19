@@ -26,7 +26,7 @@ environment {
                     sh "terraform output  | awk -F'\"' '{print \"nlb-dns=\"\$2}'  | sed -n \"3p\">> ../ansible/inventory "
                     // sh "echo >> ../ansible/inventory"
                     // sh "echo >> ../ansible/inventory"
-                    sh "echo \"ansible_user=ec2-user\" >>../ansible/inventory"
+                    // sh "echo \"ansible_user=ec2-user\" >>../ansible/inventory"
                 }
             }
         }
@@ -48,3 +48,5 @@ environment {
         }
     }
 }
+
+// ansible_ssh_private_key_file=/var/jenkins_home/ec2-terraform.pem
