@@ -24,7 +24,7 @@ environment {
                     // sh "echo [nginx_proxy:vars] >> ../ansible/inventory"
                     // sh "echo"
                     sh """
-                    dns=\$(terraform output | awk -F'\"' '{print \"nlb-dns: \"\$2}' | sed -n \"3p\")
+                    dns=\$(terraform output | awk -F'\"' '{print \"nlb_dns: \"\$2}' | sed -n \"3p\")
                     sed -i \"6 a    - \$dns\" ../ansible/playbook.yml
                     """
                     // sh "terraform output  | awk -F'\"' '{print \"nlb-dns=\"\$2}'  | sed -n \"3p\">> ../ansible/inventory "
