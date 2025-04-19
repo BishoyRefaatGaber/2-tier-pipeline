@@ -38,10 +38,10 @@ environment {
                     dir('ansible') {
 
 
-                        ansiblePlaybook  inventory: 'inventory', playbook: 'playbook.yml'
+                        // ansiblePlaybook  inventory: 'inventory', playbook: 'playbook.yml'
 
 
-                        // sh 'ansible-playbook -i inventory playbook.yml -vvvv'
+                        sh 'ansible-playbook -i inventory playbook.yml -vvvv  --ssh-extra-args='-o StrictHostKeyChecking=no''
                     // }
                 }
             }
