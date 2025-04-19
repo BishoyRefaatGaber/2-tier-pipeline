@@ -24,9 +24,10 @@
       block: server { listen 80; location / { proxy_pass http://{{ nlb_dns }}; }}
   - name: start and enable nginx
     become: yes
+    become_user: ec2-user
     service:
       name: nginx
-      state: restarted
+      state: started
       enabled: true
 
       #   "sudo yum install -y nginx",
