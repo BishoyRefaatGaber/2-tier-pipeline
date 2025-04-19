@@ -25,7 +25,7 @@ environment {
                     // sh "echo"
                     sh """
                     dns=\$(terraform output | awk -F'\"' '{print \"nlb-dns=\"\$2}' | sed -n \"3p\")
-                    sed \"6 a    - \$dns\" ../ansible/playbook.yml
+                    sed -i \"6 a    - \$dns\" ../ansible/playbook.yml
                     """
                     // sh "terraform output  | awk -F'\"' '{print \"nlb-dns=\"\$2}'  | sed -n \"3p\">> ../ansible/inventory "
                     // sh "echo >> ../ansible/inventory"
