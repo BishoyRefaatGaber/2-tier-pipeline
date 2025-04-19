@@ -47,7 +47,7 @@ environment {
 
 
                         // sh 'ansible-playbook -i inventory playbook.yml -vvvv  --ask-vault-pass'
-                        sh 'ansible-playbook -i inventory playbook.yml   --ssh-extra-args=\'-o StrictHostKeyChecking=no\''
+                        sh 'ansible-playbook -i inventory playbook.yml -vvvv  --ssh-extra-args=\'-o StrictHostKeyChecking=no\''
                     }
                 }
             }
