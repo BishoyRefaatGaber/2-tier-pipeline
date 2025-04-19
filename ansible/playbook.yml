@@ -7,13 +7,13 @@
   tasks: # List of tasks to execute
     # - name: "no comment"
     #   shell: "touch aliii"
-  - name: Update package list # Task name
-    dnf: # Module to use for the task
-      update_cache: yes # Update the package cache
+  # - name: Update package list # Task name
+  #   dnf: # Module to use for the task
   - name: install nginx
-    dnf:
+    yum:
       name: nginx
       state: present
+      update_cache: yes # Update the package cache
   - name: configure nginx
     blockinfile:
       path: /etc/nginx/conf.d/proxy.conf
