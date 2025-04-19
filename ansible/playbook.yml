@@ -26,7 +26,7 @@
     become: yes
     service:
       name: nginx
-      state: started
+      state: restarted
       enabled: true
 
       #   "sudo yum install -y nginx",
