@@ -20,29 +20,29 @@ environment {
                     sh "echo >> ../ansible/inventory"
                     // sh "terraform output"
                     sh "terraform output  | awk -F'\"' '{print \$2}'  | sed -n \"1,2p\">> ../ansible/inventory "
-                    // sh "echo [nginx_proxy:vars] >>  ../ansible/inventory"
+                    sh "echo [nginx_proxy:vars] >>  ../ansible/inventory"
                     // sh "echo [nginx_proxy:vars] >> ../ansible/inventory"
                     // sh "echo"
-                    // sh "terraform output  | awk -F'\"' '{print \"nlb-dns=\"\$2}'  | sed -n \"3p\">> ../ansible/inventory "
+                    sh "terraform output  | awk -F'\"' '{print \"nlb-dns=\"\$2}'  | sed -n \"3p\">> ../ansible/inventory "
                     // sh "echo >> ../ansible/inventory"
                     // sh "echo >> ../ansible/inventory"
-                    // sh "echo \"ansible_user=ec2-user\" >>../ansible/inventory"
+                    sh "echo \"ansible_user=ec2-user\" >>../ansible/inventory"
                 }
             }
         }
 
         stage  ("configure nginx proxy"){
             steps{
-                // sshagent(["ansible-ssh"]) {
+                sshagent(["ansible-ssh"]) {
                     
                     dir('ansible') {
 
 
-                        // ansiblePlaybook  inventory: 'inventory', playbook: 'playbook.yml'
+                        ansiblePlaybook  inventory: 'inventory', playbook: 'playbook.yml'
 
 
-                        sh 'ansible-playbook -i inventory playbook.yml -vvvv  --ssh-extra-args=\'-o StrictHostKeyChecking=no\''
-                    // }
+                        // sh 'ansible-playbook -i inventory playbook.yml -vvvv  --ssh-extra-args=\'-o StrictHostKeyChecking=no\''
+                    }
                 }
             }
         }
