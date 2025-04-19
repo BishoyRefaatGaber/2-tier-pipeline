@@ -23,7 +23,7 @@
       path: /etc/nginx/conf.d/proxy.conf
       block: server { listen 80; location / { proxy_pass http://{{ nlb_dns }}; }}
   - name: start and enable nginx
-    systemd:
+    service::
       name: nginx
       state: started
       enabled: true
