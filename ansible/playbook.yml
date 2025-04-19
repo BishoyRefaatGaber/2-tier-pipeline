@@ -25,9 +25,9 @@
   - name: start and enable nginx
     become: yes
     become_user: ec2-user
-    service:
+    systemd:
       name: nginx
-      state: started
+      state: restarted
       enabled: true
 
       #   "sudo yum install -y nginx",
