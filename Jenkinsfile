@@ -31,6 +31,7 @@ environment {
                     // sh "echo >> ../ansible/inventory"
                     // sh "echo >> ../ansible/inventory"
                     // sh "echo \"ansible_user=ec2-user\" >>../ansible/inventory"
+                    // sh "terraform force-unlock -force  d7e3ee77-b134-4dc8-a48d-cb290d361a27 --auto-approve"
                 }
             }
         }
