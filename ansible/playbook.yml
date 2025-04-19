@@ -3,6 +3,7 @@
   become: yes
   # vars_files:
   # - secrets.yml  
+  vars:
   tasks: # List of tasks to execute
     # - name: "no comment"
     #   shell: "touch aliii"
