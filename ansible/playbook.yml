@@ -16,8 +16,8 @@
       update_cache: yes # Update the package cache
   - name:
     file:
-      path: /etc/nginx/conf.d/
-      state: touch 
+      path: /etc/nginx/conf.d/proxy.conf
+      state: touch
   - name: configure nginx
     blockinfile:
       path: /etc/nginx/conf.d/proxy.conf
