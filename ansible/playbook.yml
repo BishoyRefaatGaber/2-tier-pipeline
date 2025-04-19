@@ -14,6 +14,10 @@
       name: nginx
       state: present
       update_cache: yes # Update the package cache
+  - name: Enable service httpd, and not touch the state
+    ansible.builtin.service:
+        name: nginx
+        enabled: yes    
   - name:
     file:
       path: /etc/nginx/conf.d/proxy.conf
@@ -23,12 +27,10 @@
       path: /etc/nginx/conf.d/proxy.conf
       block: server { listen 80; location / { proxy_pass http://{{ nlb_dns }}; }}
   - name: start and enable nginx
-    become: yes
-    become_user: ec2-user
-    systemd:
+    service:
       name: nginx
       state: restarted
-      enabled: true
+      enabled: yes
 
       #   "sudo yum install -y nginx",
   #   "sudo systemctl start nginx",
